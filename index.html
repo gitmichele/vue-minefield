@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- FONTAWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    
+    <!-- VUE-JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-clickaway@2.2.2/dist/vue-clickaway.min.js"></script>
+    
+    <!-- MY FILES -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
+    
+    
+    <title>MineField</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <section v-if="!gameOn && !gameFinish" id="home">
+            <header class="header-home">
+                <h1>Welcome on Minefield</h1>
+            </header>
+            
+            <div class="home-page">
+                <select id="lvl-select"
+                        v-model="selLvl">
+                    <option disabled selected value="">Level</option>
+                    <option v-for=" level in levels" :value="level">
+                        {{ level }}
+                    </option>
+                </select>
+
+                <button id="play-btn"
+                        @click="startGame">
+                    play
+                </button>
+            </div>
+        </section>
+
+        <section v-if="gameOn" id="board-game">
+
+            <header class="board-header">
+
+            </header>
+
+            <div class="board-container">
+                <div class="square"
+                    :class="squaresWidth" 
+                    v-for="square in squaresArr"
+                    @click="squareClick(square)">
+                    <img :class="square.active == 'yes' ? 'active' : ''" :src="square.icon" alt="">
+                </div>
+            </div>
+
+            <div class="end-container" 
+                v-if="gameFinish">
+                <div>Boooooooom!!!!</div>
+                <p>Do you want to try again?</p>
+                <select id="lvl-select" v-model="selLvl">
+                    <option disabled selected value="">Level</option>
+                    <option v-for=" level in levels" :value="level">
+                        {{ level }}
+                    </option>
+                </select>
+                
+                <button id="play-btn" @click="startGame">
+                    play
+                </button>
+            </div>
+        </section>
+
+    </div>
+    
+</body>
+</html>

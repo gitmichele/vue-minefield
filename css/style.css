@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* APP */
+#app{
+    height: 100vh;
+    width: 100vw;
+    background-color: #15EBDC50;
+}
+header{
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: #2AADA4;
+    color: #FF7630;
+}
+
+/* HOME */
+#home{
+    height: 100%;
+    width: 100%;
+}
+/* .header-home{
+} */
+.header-home h1{
+    font-size: 36px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #9E3A07;
+}
+.home-page{
+    height: calc(100vh - 120px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#play-btn,
+#lvl-select{
+    width: 200px;
+    height: 80px;
+    margin: 30px;
+    cursor: pointer;
+    background-color: #E68B5D;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #15EBDC;
+    text-shadow: 1px 1px #2AADA4;
+    font-weight: bolder;
+    margin-bottom: 200px;
+}
+#lvl-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    text-align: center;
+}
+#play-btn:hover,
+#lvl-select:hover{
+    background-color: #E68B5D99;
+}
+
+/* BOARD */
+.board-header{
+    width: 100%;
+}
+.board-container{
+    display: flex;
+    width: 100%;
+    padding: 50px 575px;
+    flex-wrap: wrap;
+}
+.square{
+    background-color: rgb(170, 157, 157);
+    cursor: pointer;
+    margin: 5px;
+}
+.square:hover{
+    opacity: .5;
+}
+.square img{
+    width: 30px;
+    display: none;
+}
+.square img.active{
+    display: block;
+}
+.width100{
+    width: calc(((100vw - 1150px) / 10) - 10px );
+    height: calc(((100vw - 1150px) / 10) - 10px );
+}
+.width49{
+    width: calc(((100vw - 1150px) / 7) - 10px);
+    height: calc(((100vw - 1150px) / 7) - 10px);
+}
+.width25{
+    width: calc(((100vw - 1150px) / 5) - 10px);
+    height: calc(((100vw - 1150px) / 5) - 10px);
+}
+
+/* END */
+.end-container{
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2AADA499;
+    text-align: center;
+}
+.end-container div{
+    margin-top: 125px;
+    font-weight: 900;
+    padding: 20px;
+    border-bottom: 5px solid #2AADA4;
+    border-top: 5px solid #2AADA4;
+    color: #FF7630;
+    font-size: 48px;
+    text-transform: uppercase;
+}
